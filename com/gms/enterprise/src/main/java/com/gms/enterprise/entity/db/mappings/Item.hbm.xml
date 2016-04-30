@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2016 11:30:10 AM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.gms.enterprise.entity.Item" table="ITEM" optimistic-lock="version">
+        <id name="category" type="int">
+            <column name="CATEGORY" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="price" type="int">
+            <column name="PRICE" />
+        </property>
+        <property name="bulkCost" type="int">
+            <column name="BULKCOST" />
+        </property>
+        <property name="numberOfItemsInBulk" type="int">
+            <column name="NUMBEROFITEMSINBULK" />
+        </property>
+    </class>
+</hibernate-mapping>

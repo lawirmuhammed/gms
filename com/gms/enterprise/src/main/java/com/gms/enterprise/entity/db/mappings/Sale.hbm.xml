@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 11, 2016 8:15:04 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.gms.enterprise.entity.Sale" table="SALE">
+        <id name="saleId" type="int">
+            <column name="SALEID" />
+            <generator class="increment" />
+        </id>
+        <property name="totalSale" type="double">
+            <column name="TOTALSALE" />
+        </property>
+        <property name="cashReceived" type="double">
+            <column name="CASHRECEIVED" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="saleType" type="java.lang.String">
+            <column name="SALETYPE" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="QUANTITY" />
+        </property>
+        <property name="price" type="double">
+            <column name="PRICE" />
+        </property>
+        <property name="customerId" type="java.lang.String">
+            <column name="CUSTOMERID" />
+        </property>
+        <property name="saleDate" type="java.util.Date">
+            <column name="SALEDATE" />
+        </property>
+        <property name="changeReason" type="java.lang.String">
+            <column name="CHANGEREASON" />
+        </property>
+    </class>
+</hibernate-mapping>

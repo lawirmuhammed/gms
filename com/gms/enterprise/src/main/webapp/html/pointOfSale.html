@@ -1,0 +1,60 @@
+
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Point of sale</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<form name="saleForm">
+		<div class="form-group">
+			<div class="col-md-2">
+				<input type="text" ng-model="customerFilter" placeholder="Search Customer" ng-disabled="isNotCustomer" class="form-control input-md"/>
+			</div>
+			<div class="col-md-2">
+				<select	class="form-control col-md-2" ng-disabled="isNotCustomer" ng-model="customerId"
+					ng-options="customer.customerId as customer.customerId + ': ' + customer.firstName + ' ' + customer.lastName for customer in customers | filter: filterCustomer"></select>
+			</div>
+		</div>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="col-md-1">Type</th>
+					<th>Total Sale</th>
+					<th>Cash In</th>
+					<th>Credit</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><select ng-model="saleType" class="form-control">
+							<option value="Grocery">Grocery</option>
+							<option value="Fish">Fish</option>
+					</select></td>
+					<td><input ng-model="totalSale" type="number" min=0 step="1000"
+						class="form-control"></input></td>
+					<td><input ng-model="cashReceived" type="number" min=0
+						step="1000" class="form-control"></input></td>
+					<td><input value={{totalSale-cashReceived}} type="number"
+						class="form-control" disabled></input></td>
+					<td><input ng-model="description" type="text" class="form-control"></input></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<div>
+		<button type="button" class="btn btn-success" ng-click="saveSale()" ng-disabled="!totalSale">Save</button>
+		<button type="button" class="btn btn-danger" ng-click="clearEntries()">Clear</button>
+	</div>
+
+</div>
+
+<div class="row"></div>
+
+<div class="row">
+	<div id="grid1" ui-grid="grid"  ui-grid-edit class="myGrid"></div>
+</div>

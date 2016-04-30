@@ -1,0 +1,124 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Customer Sign up form</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+          
+<div class="row">
+	<form class="form-horizontal" ng-disabled=true>
+		<fieldset ng-disabled="pageDisabled">
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="firstName">First Name</label>
+				<div class="col-md-4">
+					<input ng-model="customer.firstName" id="firstName" name="firstName" type="text"
+						placeholder="First Name" class="form-control input-md" required>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="middleName">Middle Name</label>
+				<div class="col-md-4">
+					<input ng-model="customer.middleName" id="middleName" name="middleName" type="text"
+						placeholder="Middle Name" class="form-control input-md" required>							
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="lastName">Last Name</label>
+				<div class="col-md-4">
+					<input ng-model="customer.lastName" id="lastName" name="lastName" type="text"
+						placeholder="Last Name" class="form-control input-md">
+				</div>
+			</div>
+			
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="dateOfBirth">Date Of Birth</label>
+				<div class="col-md-4">
+					<input ng-model="customer.dateOfBirth" id="dateOfBirth" name="dateOfBirth" type="date"
+						placeholder="Date Of Birth" class="form-control input-md" required>
+				</div>
+			</div>	
+			
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="phoneNumber">Phone Number</label>
+				<div class="col-md-4">
+					<input ng-model="customer.phoneNumber" id="phoneNumber" name="phoneNumber" type="text"
+						placeholder="Phone Number" class="form-control input-md" required>
+				</div>
+			</div>
+			
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="idNumber">Id Number</label>
+				<div class="col-md-4">
+					<input ng-model="customer.idNumber" id="idNumber" name="idNumber" type="text"
+						placeholder="Id Number" class="form-control input-md" required>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="email">Email</label>
+				<div class="col-md-4">
+					<input ng-model="customer.email" id="email" name="email" type="email"
+						placeholder="Email Address" class="form-control input-md">
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="address">Address</label>
+				<div class="col-md-4">
+					<input ng-model="customer.address" id="address" name="address" type="text"
+						placeholder="Address" class="form-control input-md" required>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="referedBy">Refered By</label>
+				<!--div class="col-md-4">
+					<input ng-model="customer.referedBy" id="textinput" name="textinput" type="text"
+						placeholder="Refered By" class="form-control input-md">
+				</div-->				
+				<div class="col-md-2">
+					<input type="text" ng-model="customerFilter" placeholder="Search Customer" class="form-control input-md"/>
+				</div>
+				<div class="col-md-2">
+					<select	class="form-control col-md-2" ng-model="customer.referedBy" 
+						ng-options="cust.customerId as cust.customerId + ': ' + cust.firstName + ' ' + cust.lastName for cust in customers | filter: filterCustomer"></select>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="debtThreshold">Debt Threshold</label>
+				<div class="col-md-4">
+					<input ng-model="customer.debtThreshold" id="debtThreshold" name="debtThreshold" type="number"
+						placeholder="Debt Threshold" class="form-control input-md">
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Button (Double) -->
+		<div class="form-group">
+			<div class="col-md-12">
+				<label class="col-md-3"></label>
+				<label ng-if="!pageDisabled" class="col-md-1"></label>
+				<button class="btn btn-success col-md-1" ng-click="createCustomer()" ng-if="!pageDisabled">Save</button>
+				<button class="btn btn-danger col-md-1" ng-click="cancelCreation()" ng-if="!pageDisabled">Cancel</button>
+				<label ng-if="pageDisabled" class="col-md-1"></label>
+				<button ng-if="pageDisabled" class="btn col-md-2" ng-click="resetPage()">Create Another</button>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- /.row -->
