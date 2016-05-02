@@ -14,10 +14,12 @@ import javax.ws.rs.core.Response;
 
 import com.gms.enterprise.entity.Customer;
 import com.gms.enterprise.infrastructure.CustomerRepository;
+import com.google.inject.Inject;
 
 @Path("customers")
 public class CustomerResource {
 
+	//@Inject
 	private CustomerRepository customerRepository = new CustomerRepository();
 	
 	@GET
@@ -38,7 +40,7 @@ public class CustomerResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response createCustomer(Customer customer) {
-		Customer newCustomer = customerRepository.createCustomer(customer);
+		Customer newCustomer = customerRepository.saveNewCustomer(customer);
 		return Response.ok().entity(newCustomer).build();
 	}
 	

@@ -1,21 +1,16 @@
 package com.gms.enterprise.infrastructure;
 
-import java.util.List;
-import java.util.Map;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.gms.enterprise.entity.Customer;
 import com.gms.enterprise.infrastructure.factories.HibernateSessionFactoryCreator;
 
-public enum HibernateUtils {
-	INSTANCE;
+public class HibernateUtils {
+	private static HibernateUtils instance;
+	private SessionFactory sessionFactory;
 	
-	private static SessionFactory sessionFactory;
-	
-	static {
+	private HibernateUtils() {
 		try {
 			sessionFactory = new Configuration().configure().buildSessionFactory();
 		}
@@ -24,28 +19,15 @@ public enum HibernateUtils {
 		}
 	}
 	
-	public static Session getSession() {
-		return sessionFactory.openSession();
-	}
-	
-	Session session;
-	public Object save (Object value) {
-		SessionFactory sessionFactory = HibernateSessionFactoryCreator.getSessionFactory();
-		session = sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(value);
-		session.getTransaction().commit();	
+	public HibernateUtils getInstance() {
+		if(instance == null) {
+			instance = new HibernateUtils(); 
+		}
 		
-		Customer customer = getCustomer(2);
-
-		session.close();
-		return customer;
+		return instance;
 	}
 	
-	public  Customer getCustomer(int id) {		
-		session.beginTransaction();
-		Customer customer = session.get(Customer.class, id);
-		session.getTransaction().commit();
-		return customer;
+	public static Session getSession() {		
+		return HibernateSessionFactoryCreator.getSessionFactory().openSession();
 	}
 }

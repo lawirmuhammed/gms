@@ -26,7 +26,6 @@ public class MyResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-	@Path("{activityId}")
     public String[] getIt() {
     	String[] array = new String[2];
     	array[0] = "Lawir";

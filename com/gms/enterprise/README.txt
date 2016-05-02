@@ -25,5 +25,13 @@ https://tomcat.apache.org/tomcat-8.0-doc/config/context.html#Defining_a_context
 
 For this project, go to server.xml under Server folder that is configured (via add server in debug mode) and set the path="/desiredContextName"
 
+###############################
+Database settings:
+###############################
+Always make sure database is running if you are having issues with hibernate connecting to DB.
+Verify that DB instance is running on the specified port and the credentials are valid
+
+
+
 
 

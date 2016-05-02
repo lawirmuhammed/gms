@@ -3,6 +3,8 @@
 	
 	mainApp.factory("CustomerService",["$resource", "Constants", CustomerService]);
 	
+	// The way factory is used here, i should instead use service. User factory when the return type is a class, not an object
+	// Change this to properly use factory and return something like new CustomerService();
 	function CustomerService($resource, Constants) {		
 		var customerService = {};
 		var customers = [];

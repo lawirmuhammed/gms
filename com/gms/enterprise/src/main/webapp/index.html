@@ -83,7 +83,7 @@
 
 		<div id="page-wrapper" ng-controller="PointOfSaleController">
 
-			<div ng-view></div>
+			<div class="container" ng-view></div>
 
 		</div>
 		<!-- /#page-wrapper -->
@@ -93,7 +93,7 @@
 
 	<div class="container">
 		<footer>
-			<p>&copy; 2015 GMS Ltd. All rights reserved.</p>
+			<p>&copy; 2016 GMS Ltd. All rights reserved.</p>
 		</footer>
 	</div>
 
@@ -121,6 +121,10 @@
 
 	<!-- App JS scripts-->
 	<script src="js/mainApp.js"></script>
+		
+	<!-- Providers -->
+	<script src="js/providers/constants.js"></script>
+	<script src="js/providers/mainAppConfig.js"></script>
 	
 	<!-- Controllers -->
 	<script src="js/business/controllers/pointOfSaleController.js"></script>
@@ -128,11 +132,14 @@
 	<script src="js/business/controllers/itemController.js"></script>
 	<script src="js/business/controllers/experiment.js"></script>
 	<script src="js/business/controllers/modal.js"></script>
-	
+			
 	<!-- Services -->
 	<script src="js/business/services/SalesService.js"></script>
 	<script src="js/business/services/CustomerService.js"></script>
 	<script src="js/business/services/ItemService.js"></script>
+		
+	<!-- Directives -->
+	<script src="js/directives/gms-customer-details.js"></script>
 	
 	<!-- UI-Grid Script -->
 	<script src="node_modules/ui-grid/ui-grid.min.js"></script>

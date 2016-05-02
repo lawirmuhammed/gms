@@ -1,6 +1,5 @@
 package com.gms.enterprise.presentation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -11,14 +10,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.gms.enterprise.entity.Sale;
 import com.gms.enterprise.infrastructure.SalesRepository;
-
-//import jersey.repackaged.com.google.common.collect.Lists;
 
 @Path("sales")
 public class SalesResource {
@@ -70,20 +66,11 @@ public class SalesResource {
 		}
 		return Response.ok().entity(sale).build();
 	}
-	
-	@PUT
-	@Path("{id}")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateSale1(Sale sale) {
-		return Response.ok().entity(Entity.entity(sale, MediaType.APPLICATION_JSON)).build();
-	}
-	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Sale> getAllSales() {
-		List<Sale> sales = salesRepository.getAllSales(); 
+		List<Sale> sales = salesRepository.getAllSales();
 		return sales;
-	}
-	
+	}	
 }
